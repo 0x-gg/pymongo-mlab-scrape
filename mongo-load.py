@@ -7,6 +7,7 @@ client = MongoClient(uri)
 db = client.facebook
 coll = db.free_and_for_sale
 
+# Get max updated_time to load incrementally
 last_update = coll.find_one(sort=[('updated_time', -1)])['updated_time']
 graph = facebook.GraphAPI(access_token=api)
 # 385662371445806 - UW Free & For Sale Group ID
